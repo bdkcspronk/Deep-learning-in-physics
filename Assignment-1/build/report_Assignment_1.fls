@@ -1,7 +1,7 @@
-PWD c:\Users\sbrad\Documents\dlip\dlip\Assignment 1
+PWD c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1
 INPUT C:\Users\sbrad\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\report_Assignment_1.tex
-OUTPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.log
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\report_Assignment_1.tex
+OUTPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.log
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\base\size11.clo
@@ -96,10 +96,10 @@ INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uni
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.aux
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.aux
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.aux
-OUTPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.aux
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.aux
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.aux
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.aux
+OUTPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.aux
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -108,14 +108,14 @@ INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstop
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-OUTPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.pdf
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-OUTPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+OUTPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.pdf
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+OUTPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
@@ -143,15 +143,48 @@ INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT .\playground1.png
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT C:\Users\sbrad\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.aux
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
-INPUT c:\Users\sbrad\Documents\dlip\dlip\Assignment 1\build\report_Assignment_1.out
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.aux
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT c:\Users\sbrad\Documents\Github Repositories\Deap-learning-in-physics\Assignment-1\build\report_Assignment_1.out
+INPUT C:\Users\sbrad\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\sbrad\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\sbrad\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
