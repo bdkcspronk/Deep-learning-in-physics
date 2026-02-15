@@ -4,11 +4,14 @@
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
 \usepackage[color=blue]{attachfile2}
+\usepackage{xurl}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
 \hypersetup{
-    colorlinks=true,
-    urlcolor=blue
+	colorlinks=true,
+	urlcolor=blue,
+	breaklinks=true
 }
 
 \title{DLIP - Assignment 1: Training}
@@ -19,101 +22,112 @@
 \maketitle
 
 \section{Python data science refresher.}
-\href{https://github.com/bdkcspronk/Computational-Physics/tree/main/3D%20Ising%20Model%20App}{Link of github repository to past python project} demonstrating I don't need the refresher.
+\href{https://github.com/bdkcspronk/Computational-Physics/tree/main}{Link of github repository to recent python projects}. These python projects wer based on two assignments for the course Computational Physics. In these projects I used packages such as pickle, numpy, numba, and matplotlib for data handling, efficient computation, and visualization. And they show my python skills in data science, including data manipulation, debugging, and visualization.
 
 \section{Tensorflow playground.}
 
-\subsection*{Duarte Homework 1 Problem 4A: First, select a linear model with no hidden layers. For the features, select the two independent variables \(x1\)
-and \(x2\). Can you fit the data with this linear model? Why or why not?}
+\subsection*{Duarte Homework 1 Problem 4A}
+
+\subsubsection*{Linear model}
+
 It is not possible to fit the data with a linear model with only the features \(x1\) and \(x2\), because the data is not linearly separable.
 Or in other words, we cannot draw a straight line that separates the two classes of points in the feature space defined by \(x1\) and \(x2\).
 
-\subsection*{What happens if you add the feature \(x1x2\)?}
-However, if we add the feature \(x1x2\), we can fit the data perfectly, because it allows us to capture the interaction between \(x1\) and \(x2\),
-which is necessary to separate the classes.
+However, if we add the feature \(x1x2\), we can fit the data perfectly with a linear model. Because it allows us to capture the interaction between \(x1\) and \(x2\), which is exactly what is necessary to separate the classes. The feature \(x1x2\) creates a new dimension in the feature space that allows us to draw a linear decision boundary that separates the two classes of points.
+\cite{kernel_trick}
 
-We cant change the output neurons activation. For instance when there is no hidden layer and we choose the ReLU model (max(0,x)) the output still shows negative numbers.
+\subsubsection*{RelU activation model}
+With ReLU, a neural network with 1 hidden layer with 4 neurons is the smallest neural network that fits the training data perfectly (with a training loss of \(\leq 0.001\)). The test loss is 0.001 and could go to 0 if we increase the number of epochs however in general we then risk overfitting. The configuration can be seen in Fig.\ref{fig:playground1}. In theory it should be possible to fit the data with a smaller network, but in practice it is not possible to find the right weights and biases to achieve that.\cite{xor_playwithml} Additionally, the ReLU activation function can lead to dead neurons (neurons that output 0 for all inputs), which can further complicate the training process for smaller networks.
 
-\subsection*{Now, return the features to just \((x1, x2)\) and start adding hidden layers. What's the smallest neural network
-(least number of layers and least number of neurons per layer) you can create that fits the training data
-"perfectly" (i.e. a training loss 0.001)?}
-I suppose we have to use a non-linear activation function in the hidden layer, otherwise we would just be fitting a linear model again.
-With ReLU, a neural network with 1 hidden layer with 4 neurons is the smallest neural network that fits the training data perfectly (with a training loss of \(<= 0.001\)).
-With tanh, a neural network with 1 hidden layer with 5 neurons is the smallest neural network that fits the training data perfectly.
+\url{https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.14959&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false}
 
-\subsection*{What is the corresponding test loss?}
+\textit{Note: We can't change the output neurons activation. For instance when there is no hidden layer and we choose the ReLU model (\(\max(0,x)\)) the output still shows negative numbers. Possibly a sigmoid function as the last neuron is being used to convert the output to a probability, but this is not explicitly stated in the playground.}
 
-\subsection*{Detail your hyperparameter choices by providing a screenshot and the URL to your solution (the URL contains all your settings choices).}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{playground1.png}
-    \caption{Screenshot of the smallest neural network that fits the training data perfectly.}
-\end{figure}
 
 \subsection*{Duarte Homework 1: Problem 4B}
 
-Navigate your web browser to the TensorFlow Playground \url{https://playground.tensorflow.org/#dataset=spiral&discretize=true}.
-Select the spiral pattern for the data.
+\subsubsection*{Spiral dataset with all features}
+A neural network with 1 hidden layer with 6 neurons can fit the spiral dataset with all available features. This configuration can be seen in Fig.\ref{fig:playground_spiral}. The training error is 0.000 and the test error is 0.010. This is a low bias/low variance model, because it fits the training data perfectly (low bias) and also generalizes well to the test data (low variance). However, as can be seen from the figure the decision boundary does not separate the classes in an intelligent way, which suggests that the model is not learning a meaningful representation of the data and is likely overfitting to the training data. Possible features to add to reduce the variance and improve the generalization of the model could be adding the features \(\sqrt(x1^2+x2^2)\) or \(\arctan(x2/x1)\) to capture the radial and angular structure of the spiral dataset.
 
-Using all the features available, find a solution that fits the training data.
-What training and test error do you achieve?
-Is this a low bias/high variance or high bias/low variance model?
-How do you know?
+\url{https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=6&seed=0.78711&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false&hideText=false}
 
-Using only $(x_1, x_2)$, find a solution that fits the training data.
-What training and test error do you achieve?
-Is this a low bias/high variance or high bias/low variance model?
-How do you know?
+\subsubsection*{Spiral dataset with only \(x1\) and \(x2\) features}
 
-For both solutions, detail your hyperparameter choices by providing a screenshot and the URL to your solution (the URL contains all your settings choices).
+A neural network with 3 hidden layers with 8, 7, and 6 neurons respectively can fit the spiral dataset with only the features \(x1\) and \(x2\). This configuration can be seen in Fig.\ref{fig:playground_spiral_x1_x2}. The absence of additional features means that the neural network has to rely solely on the raw input features \(x1\) and \(x2\) to learn the decision boundaries, which can make it more challenging to fit the data and may require a larger network to achieve good performance. A spiral pattern is simply not linearly separable in the original feature space, so the network needs to have a more hidden layers to separate the classes than in the previous case. The test error is 0.036, which is even worse than before, and the decision boundary is even less intelligent with gaps in between the spiral arms and rays shooting out, which suggests that the model is likely overfitting to the training data and may not generalize well to unseen data. Large spikes in training/test error on the spiral dataset typically indicate unstable optimization, probaly due to an aggressive learning rate.
 
+\url{https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,7,6&seed=0.20569&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false}
+
+\clearpage
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.8\textwidth]{playground.png}
+	\caption{Screenshot\cite{playground} of the smallest neural network that fits the training data perfectly.}
+	\label{fig:playground1}
+
+	\includegraphics[width=0.8\textwidth]{playground_spiral.png}
+	\caption{Screenshot\cite{playground} of a neural network that can fit a spiral dataset with all available features.}
+	\label{fig:playground_spiral}
+
+    \includegraphics[width=0.8\textwidth]{playground_spiral_x1_x2.png}
+	\caption{Screenshot\cite{playground} of a neural network that can fit a spiral dataset with only the features \(x1\) and \(x2\).}
+	\label{fig:playground_spiral_x1_x2}
+\end{figure}
+
+\clearpage
 \section{Training curves for polynomial regression.}
 
-\subsection*{Question on Brightspace: A sustained increase in the training error with epochs is unusual and indicates some problem (e.g. too high learning rate.).
-However, a sustained increase in training error as you increase the amount of training data is quite normal if the test error is high. (Why?)}
+\subsection*{Brightspace question about training error trends with epochs and data size}
 
-This is because when the training data is small the model can sort of memorize the test data (test error is high in this case).
-When you increase the training data the training error will increase because now it has to learn to actually model the data well.
+With a small dataset the model can effectively memorize the training points, but as more data is added it must generalize across more variation, which can raise the training error while it learns a more faithful model of the data.
 
-\subsection*{Duarte Homework 1 Problem 2C}
+\subsection*{Duarte Homework 1 Problem 2}
 
-The dataset \texttt{bv\_data.csv} is provided and has a header denoting which columns correspond to which values. Using this dataset, plot learning curves for 1st-, 2nd-, 6th-, and 12th-degree polynomial regression (4 separate plots) by following these steps for each degree $d \in \{1, 2, 6, 12\}$:
+\subsubsection*{Problem 2 Part 1A}
 
-\begin{enumerate}
-	\item For each $N \in \{20, 25, 30, 35, \ldots, 100\}$:
-	      \begin{enumerate}
-		      \item Perform 5-fold Cross-validation on the first $N$ points in the dataset (setting aside the other points), computing the both the training and validation error for each fold.
-		            \begin{itemize}
-			            \item Use the mean squared error loss as the error function.
-			            \item Use NumPy's \texttt{polyfit} method to perform the degree-$d$ polynomial regression and NumPy's \texttt{polyval} method to help compute the errors.
-			                  (See the example code and \href{https://docs.scipy.org/doc/NumPy/reference/routines.polynomials.poly1d.html}{NumPy documentation} for details.)
-			            \item When partitioning your data into folds, although in practice you should randomize your partitions, for the purposes of this set, simply divide the data into $K$ contiguous blocks.
-		            \end{itemize}
-		      \item Compute the average of the training and validation errors from the 5 folds.
-	      \end{enumerate}
-	\item Create a learning curve by plotting both the average training and validation error as functions of $N$.
-\end{enumerate}
+We can make our algebra and coding simpler by writing $f (x_1, x_2, \ldots, x_d) = \mathbf{w}^\top \mathbf{x}$
+for vectors $\mathbf{w}$ and $\mathbf{x}$. But at first glance, this formulation seems to be missing the bias term $b$ from
+the equation above. How should we define $\mathbf{x}$ and $\mathbf{w}$ such that the model includes the bias term?
 
-\subsection*{Duarte Homework 1 Problem 2D}
-Based on the learning curves, which polynomial regression model (i.e. which degree polynomial) has the highest bias? How can you tell?
+\textit{Hint: Include an additional element in $\mathbf{w}$ and $\mathbf{x}$}
 
-\subsection*{Duarte Homework 1 Problem 2E}
-Which model has the highest variance? How can you tell?
+\textbf{Solution:}
 
-\subsection{Duarte Homework 1 Problem 2F}
-What does the learning curve of the quadratic model tell you about how much the model will improve if we had additional training points?
+We can define vectors $ \mathbf{x} $ and $ \mathbf{w} $ as:
 
-\subsection{Duarte Homework 1 Problem 2G}
-Why is training error generally lower than validation error?
+\begin{equation}
+\mathbf{x} = [x_1, x_2, \ldots, x_d, 1], \quad
+\mathbf{w} = [w_1, w_2, \ldots, w_d, \mathrm{bias}]
+\end{equation}
 
-\subsection{Duarte Homework 1 Problem 2H}
-Based on the learning curves, which model would you expect to perform best on some unseen data drawn from the same distribution as the training data, and why?
+So that the dot product gives:
 
-\section{Stochastic gradient descent for linear regression.}
+\begin{equation}
+\mathbf{w}^\top \mathbf{x} = w_1 x_1 + w_2 x_2 + \ldots + w_d x_d + 1 \cdot \mathrm{bias}
+\end{equation}
 
-\subsection*{Duarte Homework Problem 2 Problem 1A-I}
+\subsubsection*{Problem 2 Part 1B: Gradient of the Squared Loss}
 
-\textattachfile[color=blue]{code/Homework2-problem-1.ipynb}{Open .ipynb}
+For a single data point $(\mathbf{x}, y)$, the squared loss is:
+
+\begin{equation}
+L(\mathbf{w}) = (y - \mathbf{w}^\top \mathbf{x})^2
+\end{equation}
+
+The gradient of $L$ with respect to $\mathbf{w}$ is obtained using the chain rule:
+
+\begin{align}
+\nabla_{\mathbf{w}} L(\mathbf{w}) 
+&= \frac{\partial}{\partial \mathbf{w}} (y - \mathbf{w}^\top \mathbf{x})^2 \\
+&= 2 (y - \mathbf{w}^\top \mathbf{x}) \cdot \frac{\partial}{\partial \mathbf{w}} (y - \mathbf{w}^\top \mathbf{x}) \\
+&= 2 (y - \mathbf{w}^\top \mathbf{x}) \cdot (-\mathbf{x}) \\
+&= -2 (y - \mathbf{w}^\top \mathbf{x}) \mathbf{x}
+\end{align}
+
+\includepdf[pages=-]{code/Homework1-problem2.pdf}
+
+\includepdf[pages=-]{code/Homework2-problem1.pdf}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
