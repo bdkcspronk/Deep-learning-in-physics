@@ -1,0 +1,20 @@
+# Ignore all zip files
+*.zip
+
+# Ignore all unzipped folders (top-level only)
+**/images_test_rev1/
+**/images_training_rev1/
+**/central_pixel_benchmark/
+**/training_solutions_rev1/
+**/working/
+
+# Ignore all unzipped folders (recursively, just in case)
+**/images_test_rev1/
+**/images_training_rev1/
+
+# Ignore any other extracted folders
+**/*.unzipped/
+**/*.extracted/
+
+# Model checkpoints
+*.pth
