@@ -59,16 +59,16 @@ For this project, I split the training data into three equal stages based on lab
 \end{figure}
 
 \section*{Results}
-Figure~\ref{fig:results_convnext_last_layer} presents the training loss of the ConvNeXt model, with the results for standard training depicted in gray and those for curriculum learning illustrated in shades of green and blue.
+Figure~\ref{fig:results_convnext_last_layer} presents the training loss of the ConvNeXt model for both learning methods.
 The results indicate that curriculum learning can improve classification performance by allowing the model to learn from easier examples before tackling more difficult ones.
 
-The normal and curriculum learning models achieved final Kaggle RMSE scores of 0.XXXXX and 0.XXXXX, respectively.
+The normal and curriculum learning models achieved final Kaggle RMSE scores of 0.09801 and 0.09883, respectively.
 For comparison, the competition winner scored 0.07491.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{result_both.png}
-    \caption{Training loss of the ConvNeXt model with and without curriculum learning. Note that this is not RMSE.}
+    \includegraphics[width=0.48\textwidth]{Galaxy-Zoo-Competition/training_loss_comparison_2_layers.png}
+    \caption{Training loss of the ConvNeXt model with and without curriculum learning.}
     \label{fig:results_convnext_last_layer}
 \end{figure}
 
@@ -78,7 +78,7 @@ Extending training with at least 10 more epochs or fine-tuning additional layers
 Curriculum learning's initial loss is higher due to a smaller dataset.
 The model quickly learns to classify easier examples, with loss decreasing significantly faster than normal training.
 One thing to note is that while it seems that both models arrive at a similar final loss in the same number of epochs, the curriculum learning model took less (real) time to get there.
-Curriculum learning was around 17\% faster than normal learning, total training time was 1.5 hours and 1.25 hours for normal learning and curriculum learning respectively.
+Curriculum learning was around 15\% faster than normal learning, total training time was 2 hours and 1.75 hours for normal learning and curriculum learning respectively.
 It is unclear if this behavior will persist with different hyperparameters.
 
 \section*{Conclusion}
