@@ -15,31 +15,40 @@
 	breaklinks=true
 }
 
+\usepackage[none]{hyphenat}
+
 \begin{document}
 
 \begin{flushleft}
 {\LARGE DLiP -- Assignment 3:\\[1ex]
-\textbf{Transfer Learning on Galaxy Zoo 2 Dataset}}\\[1ex]
-Bradley Spronk\\
+\textbf{Transfer Learning on Galaxy Zoo 2 Dataset}}
+\rule{\linewidth}{0.4pt}
+Bradley D.K.C. Spronk\\[1ex]
 \today
 \end{flushleft}
 
 \section*{Introduction}
 Galaxy Zoo 2 is a large-scale dataset of galaxy images labeled by morphological features.
 The decision tree for classification is detailed in Willett et al.~\cite{willett2013galaxy}.
-Kaggle hosted a competition 12 years ago to predict galaxy morphologies from these images~\cite{kaggle}.
+Kaggle hosted a competition to predict galaxy morphologies from these images~\cite{kaggle}.
 
 \section*{Methods}
 
 \subsection*{ConvNeXt Model}
-I used the tiny variant of the ConvNeXt model\cite{convnext}, a modern convolutional neural network for image classification. Its architecture includes a convolutional feature extractor, fully connected layers, and an output layer (see Fig.~\ref{fig:ConvNeXt-structure}).
-A ConvNeXt block consists of a depthwise convolution, layer normalization, pointwise convolution, and GELU activation.
+I used the small ConvNeXt model\cite{convnext}, a modern convolutional neural network with a feature extractor, fully connected layers, and an output layer (see Fig.~\ref{fig:ConvNeXt-structure}).
+Each block consists of depthwise convolution, layer normalization, pointwise convolution, and GELU activation.
+The Galaxy Zoo 2 dataset was preprocessed by cropping, resizing, and normalization using ConvNeXt-specific mean and standard deviation. 
+Training was performed in two ways: on the full dataset (normal training) and with curriculum learning, where data was staged by label confidence.
+In both cases, only the final layer was trained, with all other weights frozen to leverage pre-trained features.
+The model was trained for 20 epochs, batch size 512, using Adam optimizer with a learning rate of $2\mathrm{e-}4$.
 
 \subsection*{Transfer Learning}
-I fine-tuned a pre-trained ConvNeXt model on Galaxy Zoo 2 by updating only the final layer, efficiently adapting it to the new task. I also compared this to curriculum learning, where training examples increase in difficulty over time.
+Transfer learning is a technique where weights from a model trained on a large dataset are reused for a related task~\cite{transfer_learning}.
+I fine-tuned a pre-trained ConvNeXt model on Galaxy Zoo 2 by updating only the final layer, efficiently adapting it to the new task.
 
 \subsection*{Curriculum Learning}
-Curriculum learning\cite{curriculum} is a strategy where a model is first trained on easier examples and gradually exposed to harder ones. For this project, I split the training data into three stages based on label confidence: high (\(>0.94\)), medium (0.85-0.94), and low (\(<0.85\)), each about 33\% of the data. I trained sequentially: 3 epochs for high-confidence, 3 for high and medium, and 6 for the full dataset, totaling 12 epochs to match the normal model.
+Curriculum learning is a strategy where a model is first trained on easier examples and gradually exposed to harder ones.\cite{curriculum}
+For this project, I split the training data into three stages based on label confidence: high (\(>0.94\)), medium (0.85-0.94), and low (\(<0.85\)), each about 33\% of the data, or in other words: \(\sim20,000\) images.
 
 \begin{figure}[H]
     \centering
@@ -49,31 +58,33 @@ Curriculum learning\cite{curriculum} is a strategy where a model is first traine
 \end{figure}
 
 \section*{Results}
-The classification performance of the ConvNeXt model without curriculum learning is shown in Fig.~\ref{fig:results_convnext_last_layer} in gray, while the performance with curriculum learning is shown in shades of green/blue.
+Figure~\ref{fig:results_convnext_last_layer} presents the training loss of the ConvNeXt model, with the results for standard training depicted in gray and those for curriculum learning illustrated in shades of green and blue.
 The results indicate that curriculum learning can improve classification performance by allowing the model to learn from easier examples before tackling more difficult ones.
 
-This competition uses Root Mean Squared Error as the evaluation metric.
-The normal and curriculum learning models achieved final Kaggle test scores of 0.12475 and 0.12416, respectively.
-For comparison, the competition winner scored 0.07491 twelve years ago.
+The normal and curriculum learning models achieved final Kaggle RMSE scores of 0.XXXXX and 0.XXXXX, respectively.
+For comparison, the competition winner scored 0.07491.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{result_both.png}
-    \caption{Classification performance of the ConvNeXt model with and without curriculum learning.}
+    \caption{Training loss of the ConvNeXt model with and without curriculum learning. Note that this is not RMSE.}
     \label{fig:results_convnext_last_layer}
 \end{figure}
 
 \section*{Discussion}
-Curriculum learning begins with only high-confidence data, so the initial loss is higher due to limited diversity.
-As more data is added, loss decreases significantly faster than the normal training.
-My training was limited by hardware constraints, with each epoch requiring approximately 30-40 minutes.
-Extending training or fine-tuning additional layers will improve the performance of curriculum learning over normal learning.
-I regret not training on the full dataset; due to time constraints, I only used 80\% of the data to validate the pipeline and did not retrain on all data.
+My training was limited by hardware constraints, with each epoch requiring 6 minutes.
+Extending training with at least 10 more epochs or fine-tuning additional layers will improve the performance of both normal and curriculum learning.
+Curriculum learning's initial loss is higher due to a smaller dataset.
+The model quickly learns to classify easier examples, with loss decreasing significantly faster than normal training.
+One thing to note is that while it seems that both models arrive at a similar final loss in the same number of epochs, the curriculum learning model took less (real) time to get there.
+Curriculum learning was around 17\% faster than normal learning, total training time was 1.5 hours and 1.25 hours for normal learning and curriculum learning respectively.
+It is unclear if this behavior will persist with different hyperparameters.
 
 \section*{Conclusion}
-Transfer learning with ConvNeXt enables efficient galaxy morphology classification on Galaxy Zoo 2.
-Further improvements could be achieved by: training on the full dataset, increasing training duration, or fine-tuning more layers.
-Or, of course, using a bigger model.
+Transfer learning with ConvNeXt enables decent galaxy morphology classification on Galaxy Zoo 2.
+Further improvements could be achieved by increasing training duration, or fine-tuning more layers.
+Or, of course, using a bigger model and retraining it completely.
+Curriculum learning shows promise in reducing training time, however further investigation is needed.
 My results show that data selection strategies also impact results, with direct transition from high-confidence to full dataset showing promise.
 
 \bibliographystyle{IEEEtran}

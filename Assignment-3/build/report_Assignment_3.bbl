@@ -22,9 +22,11 @@
 \BIBdecl
 
 \bibitem{willett2013galaxy}
+\BIBentryALTinterwordspacing
 K.~W. Willett \emph{et~al.}, ``Galaxy zoo 2: detailed morphological
-  classifications for 304,122 galaxies from the sloan digital sky survey,''
-  \emph{Mon. Not. of the Royal Astronomical Society}, 2013.
+  classifications for 304,122 galaxies from the sloan digital sky survey.''
+  [Online]. Available: \url{https://arxiv.org/abs/1308.3496}
+\BIBentrySTDinterwordspacing
 
 \bibitem{kaggle}
 \BIBentryALTinterwordspacing
@@ -34,15 +36,20 @@ AstroDave, ``Kaggle galaxy zoo the challenge.'' [Online]. Available:
 
 \bibitem{convnext}
 \BIBentryALTinterwordspacing
-Z.~Liu, H.~Mao, C.-Y. Wu, C.~Feichtenhofer, T.~Darrell, and S.~Xie, ``Convnext:
-  A convnet for the 2020s.'' [Online]. Available:
-  \url{https://arxiv.org/abs/2201.03545}
+Z.~Liu \emph{et~al.}, ``Convnext: A convnet for the 2020s.'' [Online].
+  Available: \url{https://arxiv.org/abs/2201.03545}
+\BIBentrySTDinterwordspacing
+
+\bibitem{transfer_learning}
+\BIBentryALTinterwordspacing
+J.~Murel, ``What is transfer learning?'' [Online]. Available:
+  \url{https://www.ibm.com/think/topics/transfer-learning}
 \BIBentrySTDinterwordspacing
 
 \bibitem{curriculum}
 \BIBentryALTinterwordspacing
-Y.~Bengio, J.~Louradour, R.~Collobert, and J.~Weston, ``Curriculum learning.''
-  [Online]. Available: \url{https://arxiv.org/abs/0804.0866}
+Y.~Bengio \emph{et~al.}, ``Curriculum learning.'' [Online]. Available:
+  \url{https://arxiv.org/abs/0804.0866}
 \BIBentrySTDinterwordspacing
 
 \bibitem{geeksforgeeks}
