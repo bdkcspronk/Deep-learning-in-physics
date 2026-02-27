@@ -37,23 +37,24 @@ Kaggle hosted a competition to predict galaxy morphologies from these images~\ci
 \subsection*{ConvNeXt Model}
 I used the small ConvNeXt model\cite{convnext}, a modern convolutional neural network with a feature extractor, fully connected layers, and an output layer (see Fig.~\ref{fig:ConvNeXt-structure}).
 Each block consists of depthwise convolution, layer normalization, pointwise convolution, and GELU activation.
-The Galaxy Zoo 2 dataset was preprocessed by cropping, resizing, and normalization using ConvNeXt-specific mean and standard deviation. 
-Training was performed in two ways: on the full dataset (normal training) and with curriculum learning, where data was staged by label confidence.
-In both cases, only the final layer was trained, with all other weights frozen to leverage pre-trained features.
-The model was trained for 20 epochs, batch size 512, using Adam optimizer with a learning rate of $2\mathrm{e-}4$.
+The Galaxy Zoo 2 dataset was preprocessed by cropping, resizing, together with ConvNeXt-specific mean and standard deviation.
+Training was performed in two ways: on the full dataset (normal training) and with curriculum learning.
+In both cases, the last two feature stages and the classifier were fine-tuned.
+The optimizer used separate learning rates for backbone ($1\mathrm{e-}4$) and classifier ($5\mathrm{e-}4$), and a weight decay of $1\mathrm{e-}4$.
+The model was trained for 20 epochs with a batch size of 512.
 
 \subsection*{Transfer Learning}
 Transfer learning is a technique where weights from a model trained on a large dataset are reused for a related task~\cite{transfer_learning}.
-I fine-tuned a pre-trained ConvNeXt model on Galaxy Zoo 2 by updating only the final layer, efficiently adapting it to the new task.
+I fine-tuned a pre-trained ConvNeXt model on Galaxy Zoo 2 by updating the last two feature stages and the classifier, efficiently adapting it to the new task.
 
 \subsection*{Curriculum Learning}
 Curriculum learning is a strategy where a model is first trained on easier examples and gradually exposed to harder ones.\cite{curriculum}
-For this project, I split the training data into three stages based on label confidence: high (\(>0.94\)), medium (0.85-0.94), and low (\(<0.85\)), each about 33\% of the data, or in other words: \(\sim20,000\) images.
+For this project, I split the training data into three equal stages based on label confidence: high (\(>0.94\)), medium (0.85-0.94), and low (\(<0.85\)).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{ConvNeXt-structure.png}
-    \caption{ConvNeXt architecture\cite{geeksforgeeks}: convolutional feature extractor, fully connected, and output layers. Only the final layer is trained.}
+    \caption{ConvNeXt architecture\cite{geeksforgeeks}: convolutional feature extractor, fully connected, and output layers. The last two feature stages and classifier are fine-tuned.}
     \label{fig:ConvNeXt-structure}
 \end{figure}
 
